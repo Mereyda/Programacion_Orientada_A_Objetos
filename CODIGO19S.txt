@@ -1,0 +1,94 @@
+
+clase 19s:
+package com.company;
+
+public class EmpleadoFactory {
+
+    public static final String CODIGO_EMPLEADO_RELACION = "EMP-RD";
+    public static final String CODIGO_EMPLEADO_POR_HORA = "EMP-PH";
+    private static EmpleadoFactory instance;
+
+    private EmpleadoFactory(){
+    }
+
+    public static EmpleadoFactory getInstance() {
+        if(instance == null){
+            instance = new EmpleadoFactory();
+        }
+        return instance;
+    }
+
+    public Empleado crearEmpleado(String codigo){
+        switch (codigo) {
+            case CODIGO_EMPLEADO_RELACION :
+                //crear empleado en relacion de dependencia
+                return new EmpleadoRelacionDependencia();
+            case CODIGO_EMPLEADO_POR_HORA:
+                // crear y retornar un empleado por hora
+                return new EmpleadoPorHora();
+            default:
+                return null;
+        }
+    }
+}
+
+segundo codigo:
+import java.util.ArrayList;
+import java.util.List;
+
+public class Empresa {
+
+    private String razonSocial;
+    private List<Empleado> empleados;
+
+    public Empresa(String razonSocial) {
+        this.razonSocial = razonSocial;
+        empleados = new ArrayList<>();
+    }
+
+    public void agregarEmpleado(Empleado empleado){
+        empleados.add(empleado);
+    }
+
+    public Double calcularSueldosTotales(){
+        Double sueldosTotales = 0.0;
+        for(Empleado empleado : empleados){
+            sueldosTotales += empleado.calcularSueldo();
+        }
+        return sueldosTotales;
+    }
+
+}
+EmpleadoFactory(){
+    }
+
+    public static EmpleadoFactory getInstance() {
+        if(instance == null){
+            instance = new EmpleadoFactory();
+        }
+        return instance;
+    }
+
+    public Empleado crearEmpleado(String codigo){
+        switch (codigo) {
+            case CODIGO_EMPLEADO_RELACION :
+                //crear empleado en relacion de dependencia
+                return new EmpleadoRelacionDependencia();
+            case CODIGO_EMPLEADO_POR_HORA:
+                // crear y retornar un empleado por hora
+                return new EmpleadoPorHora();
+            default:
+                return null;
+        }
+    }
+}
+
+ver si este codogo esta mas arriba:
+public class EmpleadoFactory {
+
+    public static final String CODIGO_EMPLEADO_RELACION = "EMP-RD";
+    public static final String CODIGO_EMPLEADO_POR_HORA = "EMP-PH";
+    private static EmpleadoFactory instance;
+
+    private EmpleadoFactory(){
+    }
